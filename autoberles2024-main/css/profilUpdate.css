@@ -1,0 +1,33 @@
+#torles {
+    padding: 10px 20px;
+    background: red;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    color: #eaeaea;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s;
+    margin-top: 25px;
+}
+
+#mentes{
+    padding: 10px 20px;
+    background: green;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    color: #eaeaea;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s;
+}
+
+button:hover {
+    background: transparent;
+    color: #404040;
+}

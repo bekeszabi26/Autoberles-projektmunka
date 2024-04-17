@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #eaeaea;
+    color: #222;
+}
+
+.header {
+    top: 0;
+    left: 0;
+    width: 75%;
+    padding: 30px 8%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    margin-top: -40px; /* Csökkentett margin a fejléc felett */
+    margin-bottom: -40px; /* Csökkentett margin a fejléc alatt */
+}
+
+.navbar {
+    padding: 10px 0; /* A navigációs sáv belső tér */
+}
+
+.logo img {  
+   width: 170px;
+   height: 170px;
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 18px;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 20px;
+}
+
+.cars {
+    max-width: 1000px; /* Maximális szélesség a tartalomhoz */
+    margin: 10px auto 50px; /* Középre igazítás, felső margó hozzáadása a menühöz */
+    padding: 20px; /* Kisebb belső padding */
+    background: #fff; /* Fehér háttér a tartalomhoz */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lágy árnyék */
+    border-radius: 8px; /* Kerekített sarkok */
+    text-align: center; /* Tartalom középre igazítása */
+}
+
+.cars h1 {
+    font-size: 24px; /* Nagyobb címméret */
+    font-weight: 700; /* Vastagabb betűstílus a címhez */
+    color: #333; /* Sötétebb szövegszín */
+    margin-bottom: 15px; /* Kis margó a cím alatt */
+}
+
+.cars p {
+    font-size: 16px; /* Alapértelmezett méretű szöveg */
+    margin-bottom: 10px; /* Kis margó a bekezdések között */
+}
+
+.image-container {
+    display: inline-block; /* Az egymás melletti elhelyezéshez */
+    margin-right: 10px; /* Távolság a képek között */
+}
+
+.car-image {
+    width: 220px; /* Képek szélessége */
+    height: 220px; /* Automatikus magasság beállítása */
+    display: block; /* Blokk elemként való megjelenítés */
+}
+
+/* Stílus a modal-hoz */
+.modal {
+    display: none; /* Alapértelmezetten rejtve */
+    position: fixed; /* Elhelyezkedés */
+    z-index: 1; /* Előtérben legyen */
+    padding-top: 50px; /* Távolság a felső résztől */
+    left: 0;
+    top: 0;
+    width: 100%; /* Teljes szélesség */
+    height: 100%; /* Teljes magasság */
+    overflow: auto; /* Görgetés bekapcsolása */
+    background-color: rgb(0,0,0); /* Fekete háttér */
+    background-color: rgba(0,0,0,0.9); /* Átlátszóság */
+}
+
+/* Stílus a modal-content-hez */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-picture {
+    padding-top: 180px;
+    margin: auto;
+    display: block;
+    width: 80%; /* Kép szélessége */
+    max-width: 700px; /* Maximális szélesség */
+}
+
+/* Stílus a bezáró gombhoz */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responszív stílusok */
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 0; /* Kisebb padding a fejléc körül kisebb képernyőn */
+    }
+
+    .logo img {
+        width: 100px; /* Kisebb logo méret */
+    }
+
+    .navbar a {
+        font-size: 14px; /* Kisebb betűméret kisebb képernyőn */
+    }
+
+    .cars {
+        margin: 100px auto 50px; /* Kis margó a kisebb képernyőn */
+        padding: 15px; /* Kisebb padding a tartalom körül */
+    }
+
+    .cars h1 {
+        font-size: 20px; /* Kis méretű cím a kisebb képernyőn */
+    }
+
+    .cars p {
+        font-size: 14px; /* Kis méretű szöveg a kisebb képernyőn */
+    }
+}
