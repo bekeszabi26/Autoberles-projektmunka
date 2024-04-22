@@ -54,29 +54,32 @@ if (!isset ($_SESSION['RenterID'])) {
     </header>
     <div class="content">
         <div class="rhombus2"></div>
+        <div class="first-row">
+        <div class="data">
         <h2>Felhasználó adatai:</h2>
         <p>Vezetéknév: {{ renterData.Surname }}</p>
         <p>Keresztnév: {{ renterData.FirstName }}</p>
         <p>Email: {{ renterData.Email }}</p>
         <p>Telefonszám: {{ renterData.TelephoneNumber }}</p>
-
+        </div>
         <!-- Település adatai -->
-        <div ng-if="settlementData">
+        <div ng-if="settlementData" class="data">
             <h2>Település adatai:</h2>
             <p>Lakhely: {{ settlementData.SettlementName }}</p>
             <p>Irányítószám: {{ settlementData.ZipCode }}</p>
             <p>Megye: {{ settlementData.County }}</p>
         </div>
-
+        </div>
         <!-- Foglalás adatai -->
-        <div ng-if="reservationData.length > 0">
-            <h2>Reservation adatai:</h2>
-            <ul>
-                <li ng-repeat="reservation in reservationData">
-                    <strong>ReservationID:</strong> {{ reservation.ReservationID }}<br>
-                    <strong>CarID:</strong> {{ reservation.CarID }}<br>
-                    <strong>StartingDay:</strong> {{ reservation.StartingDay }}<br>
-                    <strong>EndingDay:</strong> {{ reservation.EndingDay }}<br>
+        <h2>Foglalás adatai:</h2>
+        <div ng-if="reservationData.length > 0" >        
+            <ul class="row2">
+                <li ng-repeat="reservation in reservationData" class="reservationData">
+                    <strong>Foglalás kód:</strong> {{ reservation.ReservationID }}<br>
+                    <!-- <strong>CarID:</strong> {{ reservation.CarID }}<br> -->
+                    <strong><p ng-if="reservation.CarID" >{{ getCarName(reservation.CarID).Tipus }} {{ getCarName(reservation.CarID).Fajta }}</p></strong>
+                    <strong>Kezdő nap:</strong> {{ reservation.StartingDay }}<br>
+                    <strong>Végző nap:</strong> {{ reservation.EndingDay }}<br>
                 </li>
             </ul>
         </div>

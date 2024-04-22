@@ -1,7 +1,28 @@
 <?php
 session_start();
 include_once "backend/config.php";
+if (isset($_SESSION['RenterID'])) {
+    $renterId = $_SESSION['RenterID'];
+}
+//var_dump($renterId);
+if (isset($_GET["carId"])) {
+    $carId = $_GET["carId"];
+    // Most már a $carId változóban van a CarID értéke
+    //echo "CarID: " . $carId; ezzel ellenőriztem meg e kapom az ID-t
+}
+
+// Űrlap elküldése
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //print_r("fut"); ellenőrizem hogy lefut a függvény gombkattintásra
+    $startingDay = $_POST['startingDay'];
+    $endingDay = $_POST['endingDay'];
+    //print_r($startingDay); ellenőriztem hogy kezembe kerültek e az adatok
+    //print_r($endingDay);
+    $sql2 = mysqli_query($conn, "INSERT INTO reservation (RenterID, CarID, StartingDay, EndingDay)
+            VALUES ('{$renterId}', '{$carId}', '{$startingDay}', '{$endingDay}')");
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en" ng-app="carApp">
 
@@ -68,10 +89,10 @@ include_once "backend/config.php";
                 <div class="modal-content">
                     <p>Köszönjük a foglalást!</p>
                     <p>Munkatársaink hamarosan felveszik Önnel a kapcsolatot Email-ben!</p>
-                    <p><a href="index.php">Vissza a kezdő oldalra</a></p>
+                    <p><a href="profilF.php">Vissza a profil oldalra</a></p>
                 </div>
             </div>
-            <button type="button" name="reserve" id="reserveButton">Foglalás</button>
+            <button type="submit" name="reserve" id="reserveButton">Foglalás</button>
         </div>
     </form>
 
@@ -97,32 +118,32 @@ include_once "backend/config.php";
 
 
             $scope.showImage = function (imageUrl) {
-                var modal = document.getElementById("myModal");
-                var modalImg = document.getElementById("img01");
+                let modal = document.getElementById("myModal");
+                let modalImg = document.getElementById("img01");
                 modal.style.display = "block";
                 modalImg.src = imageUrl;
             }
 
             // Nagy kép elrejtése
             $scope.hideImage = function () {
-                var modal = document.getElementById("myModal");
+                let modal = document.getElementById("myModal");
                 modal.style.display = "none";
             }
 
             // Get the modal
-            var modal = document.getElementById("reservationModal");
+            let modal = document.getElementById("reservationModal");
 
             // Get the button that opens the modal
-            var btn = document.getElementById("reserveButton");
+            let btn = document.getElementById("reserveButton");
 
             // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
+            let span = document.getElementsByClassName("close")[0];
 
             // When the user clicks the button, open the modal 
             btn.onclick = function () {
                 // Check if both date inputs are filled
-                var startingDay = document.getElementById("startingDay").value;
-                var endingDay = document.getElementById("endingDay").value;
+                let startingDay = document.getElementById("startingDay").value;
+                let endingDay = document.getElementById("endingDay").value;
                 if (startingDay && endingDay) {
                     modal.style.display = "block";
                 } else {

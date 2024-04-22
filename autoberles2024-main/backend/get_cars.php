@@ -24,7 +24,8 @@ if ($result && mysqli_num_rows($result) > 0) {
         //var_dump($cars);
     }
     // Visszaadja az autók tömböt JSON formátumban
-    echo json_encode($cars);
+    header("Content-Type: application/json; charset=UTF-8");
+    echo json_encode($cars, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 } else {
     // Ha nincs eredmény, akkor hibát ad vissza
     echo json_encode(array("message" => "Nincs találat az adatbázisban."));

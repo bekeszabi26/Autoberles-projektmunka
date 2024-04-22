@@ -105,10 +105,10 @@ if ($result->num_rows > 0) {
 
         <h2>Felhasználó adatai:</h2>
         <form action="profilUpdate.php" method="post">
-        <p>Vezetéknév: <input type="text" name="firstname" value="<?php echo isset($_SESSION['Firstname']) ? $_SESSION['Firstname'] : ''; ?>"></p>
-            <p>Keresztnév: <input type="text" name="surename" value="<?php echo isset($_SESSION['Surename']) ? $_SESSION['Surename'] : ''; ?>"></p>
-            <p>Email: <input type="email" name="email" value="<?php echo isset($_SESSION['Email']) ? $_SESSION['Email'] : ''; ?>"></p>
-            <p>Telefonszám: <input type="number" name="telephoneNumber" value="<?php echo isset($_SESSION['TelephoneNumber']) ? $_SESSION['TelephoneNumber'] : ''; ?>"></p>
+        <p>Vezetéknév: <input type="text" name="firstname" value="{{ renterData.Surname }}"></p>
+            <p>Keresztnév: <input type="text" name="surename" value="{{ renterData.FirstName }}"></p>
+            <p>Email: <input type="email" name="email" value="{{ renterData.Email }}"></p>
+            <p>Telefonszám: <input type="number" name="telephoneNumber" value="{{ renterData.TelephoneNumber }}"></p>
 
             <!-- Település adatai -->
         <div ng-if="settlementData">
