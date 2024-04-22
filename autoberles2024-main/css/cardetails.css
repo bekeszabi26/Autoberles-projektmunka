@@ -129,6 +129,10 @@ body {
     cursor: pointer;
 }
 
+.foglalalert{
+    color: red;
+}
+
 /* Responszív stílusok */
 
 @media screen and (max-width: 768px) {
